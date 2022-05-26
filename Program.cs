@@ -27,7 +27,7 @@ namespace SummOfNumbers
             }
 
             //запись в файл из массива
-
+             
             FileStream fs = new FileStream(inputpath, FileMode.OpenOrCreate);
             fs.Close();
             File.WriteAllText(inputpath, string.Join(" ",arr));
