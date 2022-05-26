@@ -15,31 +15,19 @@ namespace SummOfNumbers
                 string inputpath = "D:\\SolutionsForSpaceApp\\2002\\input.txt";
                 string outputpath = "D:\\SolutionsForSpaceApp\\2002\\output.txt";
 
-
-            //запись в массив
-            int n = Convert.ToInt32(Console.ReadLine());
-            int[] arr;
-            arr = new int[n];
-
-            for (int i = 0; i < n; i++)
-            {
-                arr[i] = Convert.ToInt32(Console.ReadLine());
-            }
-
-            //запись в файл из массива
-             
+            //для создания файла
             FileStream fs = new FileStream(inputpath, FileMode.OpenOrCreate);
             fs.Close();
-            File.WriteAllText(inputpath, string.Join(" ",arr));
 
-            //чтение файлов в другой массив
-            StreamReader fstake = new StreamReader(inputpath, Encoding.Unicode);
+            //чтение файлов из массива
             int[] arr2 = File.ReadAllText(inputpath).Split(' ').Select(m => int.Parse(m)).ToArray();
 
-            //сложение элементов массива и запись в output.txt
+            
             int sum = 0;
+            //для создания файла
             FileStream fsout = new FileStream(outputpath, FileMode.OpenOrCreate);
             fsout.Close();
+            //сложение элементов массива и запись в output.txt
             for (int i=0; i<arr2.Length;i++)
             {
                 sum+=Convert.ToInt32(arr2[i]);
